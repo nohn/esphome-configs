@@ -6,8 +6,8 @@ esp32:
   framework:
     type: esp-idf
 
-<<: !include common/common.yaml
-<<: !include common/bluetooth_proxy.yaml
+<<: !include ../common/common.yaml
+<<: !include ../common/bluetooth_proxy.yaml
 
 uart:
   rx_pin: GPIO3
@@ -23,9 +23,12 @@ sensor:
     temperature:
       name: ${upper_devicename} Temperature
       id: id_mhz19_temp
-    update_interval: 60s
+    update_interval: 10s
     automatic_baseline_calibration: false
-  - <<: !include sensors/wifi_signal.yaml
+  - <<: !include wifi_signal.yaml
+
+text_sensor:
+  - <<: !include wifi_info.yaml
 
 display:
   platform: tm1637
@@ -36,9 +39,6 @@ display:
   length: 4
   lambda: |-
     it.printf("%4.0f", id(id_mhz19_co2).state);
-
-text_sensor:
-  - <<: !include sensors/wifi_info.yaml
 
 switch:
   - platform: template

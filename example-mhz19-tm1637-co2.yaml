@@ -7,4 +7,4 @@ substitutions:
 
 packages:
   nodemcu-32s: !include templates/boards/nodemcu-32s.yaml
-  gas_co2_mhz19_display: !include templates/senors/gas_co2_mhz19_display.yaml
+  gas_co2_mhz19_display: !include templates/sensors/gas_co2_mhz19_display.yaml
