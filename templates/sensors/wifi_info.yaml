@@ -1,0 +1,6 @@
+---
+platform: wifi_info
+bssid:
+  name: ${upper_devicename} WiFi Connected BSSID
+scan_results:
+  name: ${upper_devicename} WiFi Scan Results

@@ -1,0 +1,55 @@
+esphome:
+  name: $devicename
+
+esp32:
+  board: nodemcu-32s
+  framework:
+    type: esp-idf
+
+<<: !include common/common.yaml
+<<: !include common/bluetooth_proxy.yaml
+
+uart:
+  rx_pin: GPIO3
+  tx_pin: GPIO1
+  baud_rate: 9600
+
+sensor:
+  - platform: mhz19
+    id: id_mhz19
+    co2:
+      name: ${upper_devicename} CO2 ppm
+      id: id_mhz19_co2
+    temperature:
+      name: ${upper_devicename} Temperature
+      id: id_mhz19_temp
+    update_interval: 60s
+    automatic_baseline_calibration: false
+  - <<: !include sensors/wifi_signal.yaml
+
+display:
+  platform: tm1637
+  id: tm1637_display
+  clk_pin: GPIO16
+  dio_pin: GPIO17
+  inverted: true
+  length: 4
+  lambda: |-
+    it.printf("%4.0f", id(id_mhz19_co2).state);
+
+text_sensor:
+  - <<: !include sensors/wifi_info.yaml
+
+switch:
+  - platform: template
+    disabled_by_default: true
+    name: ${upper_devicename} Calibrate
+    optimistic: true
+    on_turn_on:
+      mhz19.calibrate_zero: id_mhz19
+
+api:
+  services:
+    - service: mhz19_calibrate_zero
+      then:
+        - mhz19.calibrate_zero: id_mhz19

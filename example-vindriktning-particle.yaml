@@ -1,0 +1,8 @@
+substitutions:
+  devicename: example-particle
+  upper_devicename: Example Particle
+  device_ip: 192.168.99.57
+
+packages:
+  wemos_d1_mini32: !include templates/boards/wemos_d1_mini32.yaml
+  particle_vindriktning: !include templates/sensors/particle_vindriktning.yaml

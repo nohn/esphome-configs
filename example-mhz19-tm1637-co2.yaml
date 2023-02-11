@@ -1,0 +1,10 @@
+substitutions:
+  devicename: example-co2
+  upper_devicename: Example CO2
+  device_ip: 192.168.99.37
+  co2_level_1: "750"
+  co2_level_2: "1000"
+
+packages:
+  nodemcu-32s: !include templates/boards/nodemcu-32s.yaml
+  gas_co2_mhz19_display: !include templates/senors/gas_co2_mhz19_display.yaml

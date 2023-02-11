@@ -1,0 +1,8 @@
+substitutions:
+  devicename: example-geiger
+  upper_devicename: Example Geiger Counter
+  device_ip: 192.168.99.70
+
+packages:
+  nodemcu-32s: !include templates/boards/nodemcu-32s.yaml
+  radiation_cajoe: !include templates/sensors/radiation_cajoe.yaml
