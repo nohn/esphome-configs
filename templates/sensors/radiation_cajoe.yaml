@@ -6,8 +6,8 @@ esp32:
   framework:
     type: esp-idf
 
-<<: !include common/common.yaml
-<<: !include common/bluetooth_proxy.yaml
+<<: !include ../common/common.yaml
+<<: !include ../common/bluetooth_proxy.yaml
 
 sensor:
   - platform: pulse_counter
@@ -25,7 +25,7 @@ sensor:
     unit_of_measurement: 'µSv/h'
     icon: mdi:radioactive
     accuracy_decimals: 5
-  - <<: !include sensors/wifi_signal.yaml
+  - <<: !include wifi_signal.yaml
 
 binary_sensor:
   - platform: template
@@ -41,7 +41,7 @@ binary_sensor:
       }
 
 text_sensor:
-  - <<: !include sensors/wifi_info.yaml
+  - <<: !include wifi_info.yaml
 
 # Enable Home Assistant API
 api:

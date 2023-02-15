@@ -1,7 +1,7 @@
 esphome:
   name: $devicename
 
-<<: !include common/common.yaml
+<<: !include ../common/common.yaml
 
 uart:
   rx_pin: D2
@@ -11,10 +11,10 @@ sensor:
   - platform: pm1006
     pm_2_5:
       name: ${upper_devicename} PM 2.5
-  - <<: !include sensors/wifi_signal.yaml
+  - <<: !include wifi_signal.yaml
 
 text_sensor:
-  - <<: !include sensors/wifi_info.yaml
+  - <<: !include wifi_info.yaml
 
 # Enable Home Assistant API
 api:
