@@ -13,8 +13,5 @@ sensor:
       name: ${upper_devicename} PM 2.5
   - <<: !include wifi_signal.yaml
 
-text_sensor:
-  - <<: !include wifi_info.yaml
-
 # Enable Home Assistant API
 api:

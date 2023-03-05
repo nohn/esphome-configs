@@ -27,9 +27,6 @@ sensor:
     automatic_baseline_calibration: false
   - <<: !include wifi_signal.yaml
 
-text_sensor:
-  - <<: !include wifi_info.yaml
-
 display:
   platform: tm1637
   id: tm1637_display

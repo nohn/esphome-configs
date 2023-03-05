@@ -1,7 +1,7 @@
 substitutions:
   devicename: example-co2
   upper_devicename: Example CO2
-  device_ip: 192.168.99.37
+  device_ip: 192.168.99.35
   co2_level_1: "750"
   co2_level_2: "1000"
 

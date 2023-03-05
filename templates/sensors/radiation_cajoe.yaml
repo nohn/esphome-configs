@@ -40,8 +40,5 @@ binary_sensor:
         return false;
       }
 
-text_sensor:
-  - <<: !include wifi_info.yaml
-
 # Enable Home Assistant API
 api:
